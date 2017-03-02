@@ -10,26 +10,38 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    var contactInfo: Contact? {
+        didSet{
+            guard let cont = contactInfo else {
+                return 
+            }
+
+            contact = cont
+        }
+    }
+
+
+    private let label: UILabel = {
+        let lb = UILabel()
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+
+    private var contact: Contact?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        
+        label.text = contact!.firstName + " " + contact!.lastName
+
+        view.addSubview(label)
+
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -6,4 +6,9 @@
 //  Copyright © 2017 Ronaldoh1. All rights reserved.
 //
 
-import Foundation
+struct Contact {
+
+    let firstName: String
+    let lastName: String
+
+}
